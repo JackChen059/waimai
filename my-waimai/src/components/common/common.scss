@@ -1,0 +1,68 @@
+/*
+* @Author: Marte
+* @Date:   2017-07-26 15:09:16
+* @Last Modified by:   Marte
+* @Last Modified time: 2017-07-26 15:18:32
+*/
+@import 'mixin.scss';
+
+html,body{
+  height: 100%;
+}
+
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+a {
+  text-decoration: none;
+}
+
+.wrapper{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1000px;
+}
+
+.clearfix {
+  &:before,
+  &:after {
+    content: " "; // 1
+    display: table; // 2
+  }
+  &:after {
+    clear: both;
+  }
+}
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.pull-right {
+  float: right !important;
+}
+.pull-left {
+  float: left !important;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2),(min-device-pixel-ratio: 2){
+  .after1px{
+    &:after{
+      transform: scaleY(0.7)
+    }
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3){
+  .after1px{
+    &:after{
+      transform: scaleY(0.5)
+    }
+  }
+}

@@ -1,0 +1,57 @@
+/*
+* @Author: Marte
+* @Date:   2017-07-26 15:17:11
+* @Last Modified by:   Marte
+* @Last Modified time: 2017-07-31 15:49:35
+*/
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: " "; // 1
+    display: table; // 2
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+@mixin after1px($color) {
+  &:after{
+    display: block;
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    background-color: $color;
+  }
+}
+
+@mixin bgimg($imgName){
+    background-image:url($imgName+'@3x.png');
+  @media (-webkit-min-device-pixel-ratio: 2),(min-device-pixel-ratio: 2){
+    background-image:url($imgName+'@2x.png');
+  }
+}
+
+@mixin beyond-hide($num){
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $num;
+  -webkit-box-orient: vertical;
+}
+
+@mixin border1px($color){
+  &:after{
+    display: block;
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    background-color: $color;
+  }
+}
