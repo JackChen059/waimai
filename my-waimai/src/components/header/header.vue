@@ -102,7 +102,7 @@
     background-color:rgba(7,17,27,0.5);
     filter:blur;
     .content-wrapper{
-      padding: 24px 12px 18px 24px;
+      padding: 24px 5px 18px 24px;
       .logo{
         float: left;
         display:inline-block;
