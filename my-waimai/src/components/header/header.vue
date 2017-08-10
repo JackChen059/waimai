@@ -263,7 +263,7 @@
         .close{
           position: absolute;
           bottom:0;
-          padding-bottom:32px;
+          padding-bottom:79px;
           width:100%;
           font-size:32px;
           text-align:center;

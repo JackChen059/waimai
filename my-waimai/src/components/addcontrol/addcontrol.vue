@@ -1,9 +1,12 @@
 <template>
-  <div class="addPrice">
-    <span class="less icon-remove_circle_outline" v-if="this.food.count" @click="move($event)"></span>
+    <div class="addPrice">
+  <transition name="move">
+    <span class="less icon-remove_circle_outline" v-if="this.food.count" @click.stop.prevent="move($event)"></span>
+  </transition>
     <b v-show="this.food.count">{{this.food.count}}</b>
-    <span class="icon-add_circle add" @click="show($event)"></span>
+    <span class="icon-add_circle add" @click.stop.prevent="show($event)"></span>
   </div>
+
 </template>
 
 <script>
@@ -59,5 +62,13 @@ import Vue from "vue"
       color:rgb(147,153,159);
       line-height:24px;
     }
+  }
+  .move-enter-active, .move-leave-active{
+    transition: all 0.5s linear;
+    transform: translate3D(0,0,0) rotate(0deg);
+  }
+  .move-enter,.move-leave-active{
+    transform: translate3D(24px,0,0) rotate(90deg);
+    opacity:0;
   }
 </style>

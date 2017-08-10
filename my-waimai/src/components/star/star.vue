@@ -1,11 +1,9 @@
 <template>
-  <div class="star" :class="typesize">
-    {{star}}
+  <span class="star" :class="typesize">
     <ul>
       <li v-for="starCla in starNum" :class="starCla" class="star-item"></li>
     </ul>
-
-  </div>
+  </span>
 </template>
 
 <script>
@@ -78,7 +76,7 @@
 
       &.type36{
         .star-item{
-          margin-right:20px;
+          margin-right:6px;
           width:16px;
           height:16px;
           &:last-child{

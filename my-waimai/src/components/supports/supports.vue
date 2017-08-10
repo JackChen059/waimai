@@ -3,12 +3,9 @@
     <ul class="pull-left">
       <li v-for="(item,index) in supports">
         <span class="discou pull-left" :class="classMap[index]"></span>
-      {{item.description}}
+        <span class="word">{{item.description}}</span>
       </li>
     </ul>
-    <!-- <div class="count-wrapper" @click="showDetail">
-      <span class="pull-right numLi">{{classMap.length}}个<i class="icon-keyboard_arrow_right"></i></span>
-    </div> -->
   </div>
 </template>
 
@@ -76,8 +73,8 @@
 
 
     &.bigSup{
-        padding-top:10px;
-        padding-bottom:28px;
+      padding-top:10px;
+      padding-bottom:28px;
       li{
         margin-bottom: 12px;
         &:last-chid(){
@@ -104,6 +101,47 @@
           &.special{
             @include bgimg('special_2');
           }
+        }
+      }
+    }
+
+    &.SbigSup{
+      margin:0 16px;
+      ul{
+        width:100%;
+      }
+      li{
+        display:block;
+        box-sizing: border-box;
+        padding:16px 12px;
+        border-top:1px solid rgba(7,17,27,0.1);
+        .discou{
+          display:inline-block;
+          height:16px;
+          width:16px;
+          margin-right:6px;
+          background-size:cover;
+          &.decrease{
+            @include bgimg('decrease_2');
+          }
+          &.discount{
+            @include bgimg('discount_2');
+          }
+          &.guarantee{
+            @include bgimg('guarantee_2');
+          }
+          &.invoice{
+            @include bgimg('invoice_2');
+          }
+          &.special{
+            @include bgimg('special_2');
+          }
+        }
+        .word{
+          font-size:12px;
+          font-weight:200;
+          color:rgb(7,17,27);
+          line-height:16px;
         }
       }
     }

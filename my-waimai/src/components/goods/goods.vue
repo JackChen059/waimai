@@ -16,7 +16,7 @@
         <li v-for="item in goods" class="food-list-hook">
           <h2>{{item.name}}</h2>
           <ul>
-            <li v-for="food in item.foods" class="clearfix">
+            <li v-for="food in item.foods" class="clearfix" @click="chosefood(food,$event)">
               <img :src="food.icon" class="pull-left">
               <div class="information">
                 <dt>{{food.name}}</dt>
@@ -38,11 +38,16 @@
     <div class="shopcart-wrapper">
       <shopcart :delivery="seller.deliveryPrice" :minPrice="seller.minPrice" :selectFoods="selectFoods"></shopcart>
     </div>
+
+    <div class="food-wrapper">
+      <food :food = "chosefoods" ref="food"></food>
+    </div>
   </div>
 </template>
 
 <script>
 
+  import food from "../food/food.vue"
   import betterScr from "better-scroll"
   import shopcart from"../shopcart/shopcart.vue"
   import addcontrol from "../addcontrol/addcontrol.vue"
@@ -57,7 +62,8 @@
       return{
         goods:[],
         listHeight:[],
-        scrollY:0
+        scrollY:0,
+        chosefoods:{}
       }
     },
     created(){
@@ -93,7 +99,6 @@
           height +=item.clientHeight;
           this.listHeight.push(height);
         }
-        // console.log(this.listHeight);
       },
       _conMove(index,event){
         let foodList = this.$refs.conWrapper.getElementsByClassName('food-list-hook');
@@ -107,6 +112,13 @@
         // }
           this.foodScroll.scrollToElement(ele,300);
         // console.log(event);
+      },
+      chosefood(food,event){
+        if(!event._constructed){
+          return
+        }
+        this.chosefoods =food;
+        this.$refs.food.show();
       }
     },
     computed:{
@@ -135,7 +147,9 @@
     },
     components:{
       shopcart:shopcart,
-      addcontrol:addcontrol
+      addcontrol:addcontrol,
+      food:food
+      // chosefooods:chosefooods
     }
   }
 </script>
@@ -281,6 +295,15 @@
 
     .shopcart-wrapper{
 
+    }
+
+    .food-wrapper{
+      // position: fixed;
+      // top: 0;
+      // left:0;
+      // width:100%;
+      // height:100%;
+      // background-color:pink;
     }
   }
 
